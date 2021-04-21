@@ -9,22 +9,40 @@ public class ScoreDisplay extends PApplet
 {
 	ArrayList<Note> notes = new ArrayList<Note>();
 	
-	String score = "DEFGABcd";
+	//String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
 
 
 	public void loadNotes()
 	{
 		char tempNote;
+		char NoteCheck;
 		int tempDuration = 1;
 
 		for(int i=0; i<score.length(); i++)
 		{
 			tempNote = score.charAt(i);
-			Note note = new Note(tempNote, tempDuration);
-			notes.add(note);
+			if(i <(score.length()-1))
+			{
+				NoteCheck = score.charAt((i+1));
+			
+
+				if(!Character.isDigit(NoteCheck))
+				{
+					tempDuration = 1;
+				}
+				else{
+					tempDuration = 2;
+				}
+			}
+
+			if(!Character.isDigit(tempNote))
+			{
+				Note note = new Note(tempNote, tempDuration);
+				notes.add(note);
+			}
 		}
 	}
 
