@@ -56,7 +56,21 @@ public class ScoreDisplay extends PApplet
 			printArray(n);
 		}
 	}
-	
+
+	private float border = 20;
+	private float topBorder = 150;
+
+	public void staveLines()
+	{
+		float x = topBorder;
+		stroke(20);
+		for(int i = 0; i < 5; i++)
+		{
+			x += (float)30;
+			line(border, x, width - border, x );
+			fill(255);
+		}
+	}
 	
 	public void settings()
 	{
@@ -70,6 +84,7 @@ public class ScoreDisplay extends PApplet
 
 	public void setup() 
 	{
+		colorMode(HSB);
 		loadNotes();
 		printScores();
 	}
@@ -77,10 +92,20 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
+		staveLines();
+		drawNotes();
 		
 	}
 
 	void drawNotes()
 	{
+		stroke(20);
+		for(int i=0; i < score.length(); i++)
+		{
+			float x = (width - border) - (map(i, 1, score.length(), border, width-border));
+			float y = map(i, 1, score.length(), border, width-border);
+			ellipse(x, y, 15, 15);
+			fill(255);
+		}
 	}
 }
