@@ -7,6 +7,7 @@ import processing.core.PApplet;
 
 public class ScoreDisplay extends PApplet
 {
+	//declaring array to cpoy the string to
 	ArrayList<Note> notes = new ArrayList<Note>();
 	
 	String score = "DEFGABcd";
@@ -14,7 +15,7 @@ public class ScoreDisplay extends PApplet
 	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
 
-
+	//coping the string in this function
 	public void loadNotes()
 	{
 		char tempNote;
@@ -49,6 +50,7 @@ public class ScoreDisplay extends PApplet
 		}
 	}
 
+	//printing out the scores
 	public void printScores()
 	{
 		for(Note n: notes)
@@ -62,6 +64,8 @@ public class ScoreDisplay extends PApplet
 	private float border = 20;
 	private float topBorder = 150;
 
+
+	//drawing the stavelines
 	public void staveLines()
 	{
 		float x = topBorder;
@@ -99,6 +103,7 @@ public class ScoreDisplay extends PApplet
 		
 	}
 
+	//function to draw the notes
 	void drawNotes()
 	{
 		int temp;
@@ -130,7 +135,7 @@ public class ScoreDisplay extends PApplet
 			}
 
 			stroke(128);
-			for(int j=0; j<score.length(); j++)
+			for(int j=0; j<notes.size(); j++)
 			{
 				float x = map(temp, 66, 76, border+40, width-border);
 				float y = map(temp, 66, 76, height-200, 150);
