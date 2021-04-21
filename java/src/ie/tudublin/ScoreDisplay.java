@@ -9,9 +9,9 @@ public class ScoreDisplay extends PApplet
 {
 	ArrayList<Note> notes = new ArrayList<Note>();
 	
-	//String score = "DEFGABcd";
+	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
 
 
@@ -55,6 +55,8 @@ public class ScoreDisplay extends PApplet
 		{
 			printArray(n);
 		}
+
+
 	}
 
 	private float border = 20;
@@ -99,13 +101,47 @@ public class ScoreDisplay extends PApplet
 
 	void drawNotes()
 	{
-		stroke(20);
-		for(int i=0; i < score.length(); i++)
+		int temp;
+		char val;
+		int noteType;
+
+		for(Note n: notes)
 		{
-			float x = (width - border) - (map(i, 1, score.length(), border, width-border));
-			float y = map(i, 1, score.length(), border, width-border);
-			ellipse(x, y, 15, 15);
-			fill(255);
+			val = n.getNote();
+			noteType = n.getDuration();
+			temp = val - 0;
+			
+
+			if (val == 'A')
+			{
+				temp = 66;
+			}
+			else if(val == 'B')
+			{
+				temp = 67;
+			}
+			else if(val == 'c')
+			{
+				temp = 72;
+			}
+			else if(val == 'd')
+			{
+				temp = 73;
+			}
+
+			stroke(128);
+			for(int j=0; j<score.length(); j++)
+			{
+				float x = map(temp, 66, 76, border+40, width-border);
+				float y = map(temp, 66, 76, height-200, 150);
+				ellipse(x, y, 30, 30);
+				line(x+15, y, x+15, y-60);
+				if(noteType == 2)
+				{
+					line(x+15, y-60, x+30, y-45);
+				}
+				fill(255);
+			}
 		}
 	}
 }
