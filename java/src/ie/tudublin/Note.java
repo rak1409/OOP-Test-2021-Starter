@@ -1,8 +1,9 @@
 package ie.tudublin;
 
-public class Note {
+public class Note 
+{
 
-    private String note;
+    private char note;
     private int duration;
 
     public String getNote() 
@@ -25,18 +26,15 @@ public class Note {
         this.duration = duration;
     }
 
-    public Note(String note, int duration)
+    public Note(char note, int duration)
     {
         this.note = note;
         this.duration = duration;
     }
 
-    public Note() {
-    }
-
     public String toString()
     {
-        return "This is Note:" + note + "and has duration of" + duration + " .";
+        return "This is Note:" + note + " and has duration of " + duration + ".";
     }
 
 

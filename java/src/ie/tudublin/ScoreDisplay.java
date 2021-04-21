@@ -15,13 +15,27 @@ public class ScoreDisplay extends PApplet
 
 
 
-	public void loadNotes(){
+	public void loadNotes()
+	{
+		char tempNote;
+		int tempDuration = 1;
+
 		for(int i=0; i<score.length(); i++)
 		{
-			Note note = new Note();
+			tempNote = score.charAt(i);
+			Note note = new Note(tempNote, tempDuration);
 			notes.add(note);
 		}
 	}
+
+	public void printScores()
+	{
+		for(Note n: notes)
+		{
+			printArray(n);
+		}
+	}
+	
 	
 	public void settings()
 	{
@@ -35,7 +49,8 @@ public class ScoreDisplay extends PApplet
 
 	public void setup() 
 	{
-		
+		loadNotes();
+		printScores();
 	}
 
 	public void draw()
