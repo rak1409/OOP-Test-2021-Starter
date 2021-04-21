@@ -25,6 +25,15 @@ public class Note {
         this.duration = duration;
     }
 
+    public Note(String note, int duration)
+    {
+        this.note = note;
+        this.duration = duration;
+    }
+
+    public Note() {
+    }
+
     public String toString()
     {
         return "This is Note:" + note + "and has duration of" + duration + " .";
