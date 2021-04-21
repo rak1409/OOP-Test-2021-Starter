@@ -20,6 +20,7 @@ public class ScoreDisplay extends PApplet
 		char tempNote;
 		char NoteCheck;
 		int tempDuration = 1;
+		String type = "Quaver";
 
 		for(int i=0; i<score.length(); i++)
 		{
@@ -32,15 +33,17 @@ public class ScoreDisplay extends PApplet
 				if(!Character.isDigit(NoteCheck))
 				{
 					tempDuration = 1;
+					type = "Quaver";
 				}
 				else{
 					tempDuration = 2;
+					type = "Crotchet";
 				}
 			}
 
 			if(!Character.isDigit(tempNote))
 			{
-				Note note = new Note(tempNote, tempDuration);
+				Note note = new Note(tempNote, tempDuration, type);
 				notes.add(note);
 			}
 		}

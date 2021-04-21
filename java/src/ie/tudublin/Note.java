@@ -5,13 +5,14 @@ public class Note
 
     private char note;
     private int duration;
+    private String type;
 
-    public String getNote() 
+    public char getNote() 
     {
         return note;
     }
 
-    public void setNote(String note)
+    public void setNote(char note)
     {
         this.note = note;
     }
@@ -26,15 +27,26 @@ public class Note
         this.duration = duration;
     }
 
-    public Note(char note, int duration)
+    public String getType() 
+    {
+        return type;
+    }
+
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+
+    public Note(char note, int duration, String type)
     {
         this.note = note;
         this.duration = duration;
+        this.type = type;
     }
 
     public String toString()
     {
-        return "This is Note:" + note + " and has duration of " + duration + ".";
+        return "     " + note + "     " + duration + "     "+ type;
     }
 
 
